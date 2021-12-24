@@ -3,7 +3,7 @@
 ## 一、环境
 
 **pom文件**  
-`version` 大于2的需要指定驱动为【`driver-class-name: com.mysql.cj.jdbc.Driver`】
+`<version>` 大于2的需要指定驱动为【`driver-class-name: com.mysql.cj.jdbc.Driver`】
 ~~~
 <parent>
     <groupId>org.springframework.boot</groupId>
