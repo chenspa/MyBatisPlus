@@ -15,7 +15,7 @@
 ~~~
 
 
-**开启MapperScan注解**
+**启动类开启MapperScan注解**
 ~~~
 @MapperScan(value = "com.loong.mpdemo.mapper")
 
@@ -40,4 +40,47 @@ public interface DeptMapper extends BaseMapper<Dept> {
 
 ~~~
 
+**在yml中配置日志**
+~~~
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
+
+~~~
+
+## 二、CRUD
+~~~
+
+~~~
+
+## 三、表和列
+
+### 1、主键类型
+~~~
+
+~~~
+
+### 2、指定表名
+~~~
+
+
+~~~
+
+### 3、指定表名
+~~~
+
+~~~
+
+### 4、驼峰命名
+~~~
+
+
+~~~
+
+
+## 四、自定义sql
+
+## 五、查询和分页
+
+## 六、MP生成器
