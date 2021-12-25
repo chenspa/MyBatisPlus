@@ -101,6 +101,79 @@ Idtype
 
 
 ## 五、查询和分页
+1、查询构造器Wrapper
+~~~
+allEq
+  传入Map类型
+  Map中有key的value是null 使用allEq(param, true)    true 加入is null
+                                          false         忽略条件
+
+eq
+  等同于=
+
+ne
+  即!=
+
+gt
+  即>
+
+ge
+  >=
+
+lt
+  <
+
+le
+  <=
+
+between
+  between- ? and ?
+  >=  <=
+  闭区间
+
+notBetween
+  > <
+  开区间
+
+like , notLike
+like "%值%"
+notLike "%值%"
+
+likeLeft, likeRight
+liekLeft "%值"  值在结尾
+likeRight "值%" 值在开头
+
+......
+
+
+~~~
+
+2、分页
+配置分页注解类
+~~~
+旧版分页
+@Configuration
+public class Config {
+    /**
+     * 定义方法，返回的值是 java 对象，这个对象是放入到 spring 容器中
+     */
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
+}
+
+最新版分页 3.4.2
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.H2));
+        return interceptor;
+    }
+
+~~~
+
 
 
 ## 六、MP生成器
+
