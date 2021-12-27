@@ -149,7 +149,7 @@ likeRight "值%" 值在开头
 ~~~
 
 2、分页
-配置分页注解类
+**配置分页注解类**
 ~~~
 旧版分页
 @Configuration
@@ -187,10 +187,10 @@ public class Config {
 </dependency>
 
 <!--        代码生成器-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.2</version>
-        </dependency>
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-generator</artifactId>
+    <version>3.3.2</version>
+</dependency>
 
 ~~~
