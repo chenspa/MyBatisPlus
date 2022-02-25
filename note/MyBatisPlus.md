@@ -194,3 +194,43 @@ public class Config {
 </dependency>
 
 ~~~
+
+## 七、自动填充
+在插入数据时自动赋值填充
+
+**public class Borrow {**
+~~~
+    @TableField(fill = FieldFill.INSERT)
+    private Timestamp borrowDate;
+~~~
+
+**MetaObjectHandlerConfig**
+~~~
+@Component
+public class MetaObjectHandlerConfig implements MetaObjectHandler {
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        this.fillStrategy(metaObject, "recommend", 0);
+        this.fillStrategy(metaObject, "status", "01");
+        this.fillStrategy(metaObject, "createDate", new Date());
+        this.fillStrategy(metaObject, "borrowDate", new Date());
+
+        Date date = new Date();
+        Calendar rightNow = Calendar.getInstance();
+        rightNow.setTime(date);
+        rightNow.add(Calendar.MONTH, 1);
+        Date shouldRDate = rightNow.getTime();
+       
+       /**
+         * 归还时间应在当前时间的基础上加一个月
+         */
+        this.fillStrategy(metaObject, "shouldRDate", shouldRDate);
+        
+    }
+
+    @Override
+    public void updateFill(MetaObject metaObject) {
+
+    }
+}
+~~~
